@@ -1,9 +1,36 @@
+#
+# matches up with google spreadsheets =stdev(a3:a8)
+#
+
 require 'descriptive-statistics'
+require 'ruby-standard-deviation'
 
-stats = DescriptiveStatistics::Stats.new([1,1,2,3,10])
-variance = stats.variance #=> 14.299999999999999
-sd = stats.standard_deviation #=> 3.7815340802378072
-stats.relative_standard_deviation #=> 99.47961485463391
+data0 = [1,1,2,3,10]
 
-print 'variance = ', variance; puts
+stats = DescriptiveStatistics::Stats.new(data0)
+variance = stats.variance
+sd = stats.standard_deviation
+stats.relative_standard_deviation
+
 print 'standard_deviation = ', sd; puts
+print 'standard_deviation = ', data0.stdev
+puts; puts
+
+data1 = [1,3,21,32,42]
+stats = DescriptiveStatistics::Stats.new(data1)
+
+print 'standard_deviation = ', stats.standard_deviation; puts
+print 'standard_deviation = ', data1.stdev
+
+puts; puts
+
+data1 = [4,5,5,4,4,2,2,6]
+stats = DescriptiveStatistics::Stats.new(data1)
+
+print 'standard_deviation = ', stats.standard_deviation; puts
+print 'standard_deviation = ', data1.stdev
+
+puts; puts
+
+# calculate population standard deviation
+p data1.stdevp
